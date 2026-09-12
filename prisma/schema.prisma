@@ -1,0 +1,74 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String?
+  email     String   @unique
+  image     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  interviews Interview[]
+}
+
+model Interview {
+  id          String   @id @default(cuid())
+  userId      String
+  type        String
+  role        String
+  difficulty  String
+  status      String   @default("DRAFT")
+  startedAt   DateTime?
+  completedAt DateTime?
+  createdAt   DateTime @default(now())
+
+  user      User                @relation(fields: [userId], references: [id])
+  questions InterviewQuestion[]
+  result    InterviewResult?
+}
+
+model InterviewQuestion {
+  id          String   @id @default(cuid())
+  interviewId String
+  question    String
+  category    String
+  order       Int
+  createdAt   DateTime @default(now())
+
+  interview Interview @relation(fields: [interviewId], references: [id])
+  answer    Answer?
+}
+
+model Answer {
+  id         String   @id @default(cuid())
+  questionId String   @unique
+  response   String
+  score      Float?
+  feedback   String?
+  createdAt  DateTime @default(now())
+
+  question InterviewQuestion @relation(fields: [questionId], references: [id])
+}
+
+model InterviewResult {
+  id             String   @id @default(cuid())
+  interviewId    String   @unique
+  overallScore   Float
+  strengths      String
+  weaknesses     String
+  recommendation String
+  createdAt      DateTime @default(now())
+
+  interview Interview @relation(fields: [interviewId], references: [id])
+}
