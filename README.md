@@ -41,7 +41,7 @@ InterviewOS then generates a personalized set of interview questions.
 
 ### 📊 Interview Results
 
-![Interview Results](./Results)
+![Interview Results](./Results.png)
 
 After completing an interview, InterviewOS evaluates the responses and provides:
 
