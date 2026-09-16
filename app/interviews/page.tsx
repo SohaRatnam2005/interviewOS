@@ -1,5 +1,9 @@
+export const dynamic = "force-dynamic";
+
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
+
+
 
 export default async function InterviewsPage() {
   const user = await prisma.user.findFirst({
