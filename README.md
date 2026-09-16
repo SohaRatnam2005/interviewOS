@@ -11,6 +11,7 @@ Built with **Next.js, TypeScript, PostgreSQL, Prisma, Auth.js, and Groq**, Inter
 ![InterviewOS Dashboard](./dashboard.png)
 
 The personalized dashboard provides an overview of interview activity, completed interviews, average performance, completion rate, and recent sessions.
+Users can view previous interviews, their completion status, scores, difficulty, question count, and interview details.
 
 ---
 
@@ -26,7 +27,7 @@ Users can create an account and securely authenticate before accessing their int
 
 ### 🎯 Create an Interview
 
-![Create Interview](./screenshots/create-interview.png)
+![Create Interview](./createinterview.png)
 
 Users can configure an interview based on:
 
@@ -38,17 +39,9 @@ InterviewOS then generates a personalized set of interview questions.
 
 ---
 
-### 🎤 Interview Session
-
-![Interview Session](./screenshots/interview-session.png)
-
-The interactive interview environment presents questions one at a time and allows users to submit their answers as they progress through the session.
-
----
-
 ### 📊 Interview Results
 
-![Interview Results](./screenshots/interview-results.png)
+![Interview Results](./Results)
 
 After completing an interview, InterviewOS evaluates the responses and provides:
 
@@ -60,11 +53,9 @@ After completing an interview, InterviewOS evaluates the responses and provides:
 
 ---
 
-### 📈 Interview History
+### 📈 AI Feedback
 
-![Interview History](./screenshots/interview-history.png)
-
-Users can view previous interviews, their completion status, scores, difficulty, question count, and interview details.
+![Interview Feedback](./feedback.png)
 
 ---
 
