@@ -48,7 +48,7 @@ export default async function NewInterviewPage() {
               Choose the options for your practice session.
             </p>
 
-            <CreateInterviewForm userId={user.id} />
+            <CreateInterviewForm />
           </section>
 
           <aside className="rounded-2xl border border-purple-100 bg-purple-50/50 p-6">
