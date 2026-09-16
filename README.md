@@ -1,62 +1,8 @@
-# InterviewOS
+# InterviewOS 🎯
 
-**InterviewOS** is a full-stack AI-powered interview preparation platform designed to help students and developers practice realistic technical and behavioral interviews, receive personalized AI feedback, and track their performance over time.
+**InterviewOS** is a full-stack AI-powered interview preparation platform that helps students and developers simulate realistic technical and behavioral interviews, receive AI-powered feedback, and track their interview performance over time.
 
-> 🚧 InterviewOS is currently under active development.
-
----
-
-## ✨ Features
-
-* 🔐 **User Authentication**
-
-  * Secure signup and login
-  * Password hashing with bcrypt
-  * Session-based authentication with Auth.js
-
-* 🎯 **Customized Interviews**
-
-  * Select target role
-  * Choose interview type
-  * Choose difficulty level
-  * Generate personalized interview sessions
-
-* 🤖 **AI-Powered Question Generation**
-
-  * Generates interview questions based on role, type, and difficulty
-  * Structured AI responses
-  * Powered by Groq
-
-* 💬 **Interactive Interview Sessions**
-
-  * Question-by-question interview experience
-  * Answer submission
-  * Interview progress tracking
-
-* 📊 **AI-Powered Evaluation**
-
-  * Answer scoring
-  * Personalized feedback
-  * Strengths and weaknesses
-  * Overall interview performance
-
-* 📈 **Performance Dashboard**
-
-  * Total interviews
-  * Completed interviews
-  * Average score
-  * Completion rate
-  * Recent interview history
-
-* 👤 **User-Specific Data**
-
-  * Each user sees only their own interviews
-  * Interviews are linked to authenticated users
-  * Protected server-side actions
-
-* 📄 **Resume Personalization**
-
-  * Planned support for resume-based interview questions
+Built with **Next.js, TypeScript, PostgreSQL, Prisma, Auth.js, and Groq**, InterviewOS combines a production-style full-stack architecture with AI features to create an end-to-end interview preparation experience.
 
 ---
 
@@ -64,7 +10,9 @@
 
 ### 🏠 Dashboard
 
-![InterviewOS Dashboard](./screenshots/dashboard.png)
+![InterviewOS Dashboard](./Home page.png)
+
+The personalized dashboard provides an overview of interview activity, completed interviews, average performance, completion rate, and recent sessions.
 
 ---
 
@@ -78,11 +26,21 @@
 
 ![InterviewOS Signup](./screenshots/signup.png)
 
+Users can create an account and securely authenticate before accessing their interview data.
+
 ---
 
-### 🎯 Create Interview
+### 🎯 Create an Interview
 
 ![Create Interview](./screenshots/create-interview.png)
+
+Users can configure an interview based on:
+
+* Target role
+* Interview type
+* Difficulty level
+
+InterviewOS then generates a personalized set of interview questions.
 
 ---
 
@@ -90,11 +48,21 @@
 
 ![Interview Session](./screenshots/interview-session.png)
 
+The interactive interview environment presents questions one at a time and allows users to submit their answers as they progress through the session.
+
 ---
 
 ### 📊 Interview Results
 
 ![Interview Results](./screenshots/interview-results.png)
+
+After completing an interview, InterviewOS evaluates the responses and provides:
+
+* Overall score
+* Individual answer evaluation
+* Strengths
+* Weaknesses
+* Personalized recommendations
 
 ---
 
@@ -102,7 +70,86 @@
 
 ![Interview History](./screenshots/interview-history.png)
 
-> Screenshots will be updated as new features are added.
+Users can view previous interviews, their completion status, scores, difficulty, question count, and interview details.
+
+---
+
+## ✨ Features
+
+### 🔐 Authentication
+
+* User registration and login
+* Secure password hashing with bcrypt
+* Auth.js authentication
+* JWT-based sessions
+* Protected interview actions
+* User-specific data access
+
+### 🎯 Interview Generation
+
+Users can create customized interview sessions based on:
+
+* **Role** — Java Developer, Frontend Developer, etc.
+* **Interview Type** — Technical, HR, Behavioral
+* **Difficulty** — Easy, Medium, Hard
+
+### 🤖 AI Question Generation
+
+InterviewOS uses the **Groq API** to generate structured interview questions based on the selected interview configuration.
+
+The AI generation system produces questions dynamically rather than relying on a static question bank.
+
+### 💬 Interactive Interview Experience
+
+* Question-by-question interview flow
+* Answer submission
+* Interview progress tracking
+* Draft and completed interview states
+* Persistent interview data
+
+### 🧠 AI-Powered Evaluation
+
+Completed interviews are evaluated using AI to provide structured feedback including:
+
+* Answer scores
+* Feedback
+* Strengths
+* Weaknesses
+* Overall performance
+* Improvement recommendations
+
+### 📊 Performance Dashboard
+
+The dashboard provides an overview of:
+
+* Total interviews
+* Completed interviews
+* Average score
+* Completion rate
+* Recent interviews
+
+### 📚 Interview History
+
+Every interview is persisted so users can return to previous sessions and review their performance.
+
+### 👤 User-Specific Data
+
+InterviewOS associates every interview with the authenticated user.
+
+This ensures that:
+
+```text
+User A
+ ├── Interview 1
+ ├── Interview 2
+ └── Interview 3
+
+User B
+ ├── Interview 1
+ └── Interview 2
+```
+
+Users only access their own interview data.
 
 ---
 
@@ -110,105 +157,110 @@
 
 ### Frontend
 
-* Next.js 16
-* React 19
-* TypeScript
-* Tailwind CSS
-* shadcn/ui
+* **Next.js 16**
+* **React 19**
+* **TypeScript**
+* **Tailwind CSS**
+* **shadcn/ui**
 
 ### Backend
 
-* Next.js Server Actions
-* Next.js API Routes
-* Auth.js
-* bcrypt
+* **Next.js Server Actions**
+* **Next.js API Routes**
+* **Auth.js**
+* **bcrypt**
 
 ### Database
 
-* PostgreSQL
-* Prisma ORM
-* Neon PostgreSQL
+* **PostgreSQL**
+* **Prisma ORM**
+* **Neon**
 
 ### AI
 
-* Groq API
-* Structured AI outputs
-* LLM-powered question generation and evaluation
+* **Groq API**
+* Structured LLM outputs
+* AI-generated interview questions
+* AI-powered answer evaluation
 
 ### Deployment
 
-* Vercel
-* Neon
+* **Vercel**
+* **Neon PostgreSQL**
 
 ---
 
 ## 🏗️ Architecture
 
 ```text
-                         ┌──────────────────┐
-                         │      User        │
-                         └────────┬─────────┘
-                                  │
-                                  ▼
-                         ┌──────────────────┐
-                         │    Next.js App   │
-                         │ React + TypeScript│
-                         └────────┬─────────┘
-                                  │
-                    ┌─────────────┴─────────────┐
-                    │                           │
-                    ▼                           ▼
-             ┌──────────────┐           ┌──────────────┐
-             │    Auth.js   │           │   Groq API   │
-             │ Authentication│           │   AI Layer   │
-             └──────┬───────┘           └──────┬───────┘
-                    │                           │
-                    └─────────────┬─────────────┘
-                                  │
-                                  ▼
-                         ┌──────────────────┐
-                         │ Prisma ORM       │
-                         └────────┬─────────┘
-                                  │
-                                  ▼
-                         ┌──────────────────┐
-                         │ Neon PostgreSQL  │
-                         └──────────────────┘
+                         ┌─────────────────────┐
+                         │        User         │
+                         └──────────┬──────────┘
+                                    │
+                                    ▼
+                         ┌─────────────────────┐
+                         │     Next.js App     │
+                         │ React + TypeScript  │
+                         └──────────┬──────────┘
+                                    │
+                    ┌───────────────┼───────────────┐
+                    │               │               │
+                    ▼               ▼               ▼
+             ┌────────────┐  ┌────────────┐  ┌────────────┐
+             │  Auth.js   │  │   Groq AI  │  │  Server    │
+             │    Auth    │  │   Engine   │  │  Actions   │
+             └─────┬──────┘  └─────┬──────┘  └─────┬──────┘
+                   │                │               │
+                   └────────────────┼───────────────┘
+                                    │
+                                    ▼
+                           ┌─────────────────┐
+                           │  Prisma ORM     │
+                           └────────┬────────┘
+                                    │
+                                    ▼
+                           ┌─────────────────┐
+                           │ Neon PostgreSQL │
+                           └─────────────────┘
 ```
 
 ---
 
-## 🔄 Core User Flow
+## 🔄 How InterviewOS Works
 
 ```text
-Sign Up
-   ↓
-Login
-   ↓
-Dashboard
-   ↓
+Create Account
+      ↓
+     Login
+      ↓
+   Dashboard
+      ↓
 Create Interview
-   ↓
+      ↓
 Select Role + Type + Difficulty
-   ↓
+      ↓
 AI Generates Questions
-   ↓
+      ↓
 Start Interview
-   ↓
+      ↓
 Answer Questions
-   ↓
+      ↓
 Submit Interview
-   ↓
+      ↓
 AI Evaluates Answers
-   ↓
-View Results
-   ↓
+      ↓
+Generate Results
+      ↓
+Review Feedback
+      ↓
 Track Performance
 ```
 
 ---
 
-## 🗄️ Data Model
+## 🗄️ Database Design
+
+InterviewOS uses a relational PostgreSQL database managed through Prisma.
 
 ```text
 User
@@ -222,41 +274,45 @@ User
        └── InterviewResult
 ```
 
-### Main Models
+### Core Models
 
-| Model               | Purpose                                         |
-| ------------------- | ----------------------------------------------- |
-| `User`              | Stores registered users and authentication data |
-| `Interview`         | Stores interview configuration and status       |
-| `InterviewQuestion` | Stores AI-generated interview questions         |
-| `Answer`            | Stores user responses and evaluation data       |
-| `InterviewResult`   | Stores overall interview performance            |
+| Model               | Responsibility                              |
+| ------------------- | ------------------------------------------- |
+| `User`              | User account and authentication information |
+| `Interview`         | Interview configuration and lifecycle       |
+| `InterviewQuestion` | AI-generated interview questions            |
+| `Answer`            | User answers and evaluation information     |
+| `InterviewResult`   | Overall interview evaluation                |
 
 ---
 
-## 🔐 Authentication Flow
+## 🔐 Authentication Architecture
+
+InterviewOS uses **Auth.js Credentials Authentication** with JWT sessions.
 
 ```text
-User
- │
- ├── Sign Up
- │      ↓
- │   Password Hash
- │      ↓
- │   PostgreSQL
- │
- └── Login
-        ↓
-     Auth.js
-        ↓
-   JWT Session
-        ↓
-   session.user.id
-        ↓
- User-specific data
+Sign Up
+   ↓
+Password
+   ↓
+bcrypt Hash
+   ↓
+PostgreSQL
+   ↓
+Login
+   ↓
+Auth.js
+   ↓
+JWT Session
+   ↓
+session.user.id
+   ↓
+Authenticated Server Actions
 ```
 
-Interviews are associated with the authenticated user's ID rather than relying on a global or first-created user.
+Interview ownership is determined from the authenticated session rather than from client-provided user IDs.
+
+This prevents users from simply passing another user's ID when creating or accessing interview data.
 
 ---
 
@@ -267,8 +323,8 @@ interview-os/
 │
 ├── app/
 │   ├── actions/
-│   │   ├── answer-actions.ts
 │   │   ├── ai-actions.ts
+│   │   ├── answer-actions.ts
 │   │   ├── evaluation-actions.ts
 │   │   ├── interview-actions.ts
 │   │   ├── question-actions.ts
@@ -276,6 +332,7 @@ interview-os/
 │   │
 │   ├── components/
 │   │   ├── create-interview-form.tsx
+│   │   ├── create-user-form.tsx
 │   │   └── ...
 │   │
 │   ├── interview/
@@ -289,17 +346,16 @@ interview-os/
 │   │
 │   ├── login/
 │   ├── signup/
-│   │
 │   ├── [...nextauth]/
 │   │
 │   └── page.tsx
 │
+├── lib/
+│   └── prisma.ts
+│
 ├── prisma/
 │   ├── migrations/
 │   └── schema.prisma
-│
-├── lib/
-│   └── prisma.ts
 │
 ├── auth.ts
 ├── prisma.config.ts
@@ -310,48 +366,38 @@ interview-os/
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Running Locally
 
-### 1. Clone the repository
+### Clone the repository
 
 ```bash
 git clone <your-repository-url>
 cd interview-os
 ```
 
-### 2. Install dependencies
+### Install dependencies
 
 ```bash
 npm install
 ```
 
-### 3. Configure environment variables
+### Configure environment variables
 
-Create a `.env` file in the project root:
+Create a `.env` file:
 
 ```env
 DATABASE_URL="your-neon-database-url"
-
 AUTH_SECRET="your-auth-secret"
-
 GROQ_API_KEY="your-groq-api-key"
 ```
 
-> Never commit your `.env` file or expose API keys publicly.
-
-### 4. Generate Prisma Client
+### Generate Prisma Client
 
 ```bash
 npx prisma generate
 ```
 
-### 5. Run database migrations
-
-```bash
-npx prisma migrate dev
-```
-
-### 6. Start the development server
+### Run the application
 
 ```bash
 npm run dev
@@ -365,162 +411,128 @@ http://localhost:3000
 
 ---
 
-## 🧪 Build
+## 🏭 Production Build
 
-To verify the production build:
+Generate the Prisma client and create the production build:
 
 ```bash
 npm run build
 ```
 
-Start the production server:
+Start the production application:
 
 ```bash
 npm start
+```
+
+The production build uses:
+
+```json
+"build": "prisma generate && next build"
 ```
 
 ---
 
 ## ☁️ Deployment
 
-InterviewOS is designed to be deployed using:
+InterviewOS is deployed using **Vercel** with **Neon PostgreSQL** as the production database.
 
 ```text
-Vercel
-   │
-   ├── Next.js Application
-   │
-   └── Environment Variables
-          │
-          ├── DATABASE_URL
-          ├── AUTH_SECRET
-          └── GROQ_API_KEY
-
-Neon
-   │
-   └── PostgreSQL Database
+                    Vercel
+                      │
+                      ▼
+              ┌───────────────┐
+              │  Next.js App  │
+              └───────┬───────┘
+                      │
+            ┌─────────┴─────────┐
+            │                   │
+            ▼                   ▼
+      ┌───────────┐       ┌───────────┐
+      │  Groq AI  │       │   Neon    │
+      │    API    │       │ PostgreSQL│
+      └───────────┘       └───────────┘
 ```
 
-The application uses Prisma Client generation during the production build.
+Production environment variables:
+
+```text
+DATABASE_URL
+AUTH_SECRET
+GROQ_API_KEY
+```
 
 ---
 
-## 🎯 Project Goals
+## 🔒 Security Considerations
 
-InterviewOS is being built as a production-oriented full-stack engineering project to demonstrate:
+InterviewOS uses several server-side security practices:
 
-* Full-stack application development
-* Modern React and Next.js architecture
+* Passwords are stored as bcrypt hashes rather than plaintext.
+* Authentication is handled through Auth.js.
+* User identity is obtained from the authenticated session.
+* Server Actions verify authentication before modifying protected data.
+* Interview ownership is associated with the authenticated user's ID.
+* API credentials are stored using environment variables.
+* Sensitive environment variables are excluded from version control.
+
+---
+
+## 💡 Engineering Highlights
+
+InterviewOS demonstrates practical experience with:
+
+* Full-stack Next.js application architecture
+* React server and client components
+* Server Actions
 * Authentication and authorization
-* Server-side application logic
-* Relational database design
+* JWT sessions
+* PostgreSQL relational data modeling
 * Prisma ORM
-* AI/LLM integration
-* Structured AI outputs
-* Secure data access
-* Cloud deployment
-* Production-oriented development practices
-* Building a complete user-facing product
+* Database migrations
+* AI/LLM API integration
+* Structured AI responses
+* Asynchronous server-side workflows
+* User-specific data access
+* Production environment configuration
+* Vercel deployment
+* Neon cloud databases
+* Error handling and validation
 
 ---
 
-## 🗺️ Roadmap
+## 🎯 Why I Built InterviewOS
 
-### Core Platform
+Interview preparation platforms often separate practice, feedback, and progress tracking across different tools.
 
-* [x] Next.js project setup
-* [x] TypeScript setup
-* [x] Tailwind CSS
-* [x] PostgreSQL database
-* [x] Prisma ORM
-* [x] Neon database
-* [x] User authentication
-* [x] User-specific dashboards
-* [x] Interview creation
-* [x] AI question generation
-* [x] Interactive interview session
-* [x] Answer submission
-* [x] AI evaluation
-* [x] Interview results
-* [x] Interview history
-* [x] Vercel deployment
-
-### Upcoming
-
-* [ ] Resume upload
-* [ ] Resume-based question generation
-* [ ] Advanced performance analytics
-* [ ] Question categories and filtering
-* [ ] Interview difficulty adaptation
-* [ ] Improved evaluation system
-* [ ] Interview recommendations
-* [ ] UI/UX refinement
-* [ ] Mobile responsiveness improvements
-* [ ] Automated testing
-* [ ] Production monitoring
-
----
-
-## 🔮 Future Vision
-
-InterviewOS aims to become a complete interview preparation workspace where users can:
+InterviewOS brings these workflows into a single application:
 
 ```text
-Upload Resume
-      ↓
-Analyze Skills
-      ↓
-Generate Personalized Interview
-      ↓
 Practice
-      ↓
-Receive AI Feedback
-      ↓
-Identify Weak Areas
-      ↓
-Practice Again
-      ↓
-Track Improvement
+   +
+AI Feedback
+   +
+Performance Tracking
+   =
+InterviewOS
 ```
 
-The goal is to combine **full-stack engineering, AI-assisted learning, and meaningful performance tracking** into one practical platform.
+The project was built to explore how modern full-stack technologies and AI can work together to solve a practical problem while maintaining a scalable application architecture.
 
 ---
 
 ## 👩‍💻 Author
 
-**Soha Ratnam**
+### Soha Ratnam
 
-B.Tech Computer Science Engineering
+**B.Tech Computer Science Engineering**
 
-Built as a full-stack engineering portfolio project.
+Full-Stack Developer
+
+[GitHub](https://github.com/SohaRatnam2005)
 
 ---
 
-## 📌 Project Status
+## ⭐ Project
 
-**🚧 Active Development**
-
-More features, improvements, and production refinements are being added continuously.
-
-````
-
-### 📸 For the screenshots
-
-Create this folder in your project:
-
-```text
-interview-os/
-└── screenshots/
-    ├── dashboard.png
-    ├── login.png
-    ├── signup.png
-    ├── create-interview.png
-    ├── interview-session.png
-    ├── interview-results.png
-    └── interview-history.png
-````
-
-Then you just put your screenshots there with those exact filenames. GitHub will automatically render them in the README.
-
-**One thing I intentionally changed:** the old README said Database, Authentication, Interview Creation, AI, etc. were still `[ ]`. Since you've now implemented those pieces, the new README reflects your **actual current project state** rather than the original plan.
+If you find InterviewOS interesting, consider giving the repository a ⭐ on GitHub.
