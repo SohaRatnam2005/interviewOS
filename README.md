@@ -6,11 +6,9 @@ Built with **Next.js, TypeScript, PostgreSQL, Prisma, Auth.js, and Groq**, Inter
 
 ---
 
-## 📸 Screenshots
-
 ### 🏠 Dashboard
 
-![InterviewOS Dashboard](./Home page.png)
+![InterviewOS Dashboard](./dashboard.png)
 
 The personalized dashboard provides an overview of interview activity, completed interviews, average performance, completion rate, and recent sessions.
 
@@ -18,13 +16,9 @@ The personalized dashboard provides an overview of interview activity, completed
 
 ### 🔐 Authentication
 
-#### Login
-
-![InterviewOS Login](./screenshots/login.png)
-
 #### Sign Up
 
-![InterviewOS Signup](./screenshots/signup.png)
+![InterviewOS Signup](./signup.png)
 
 Users can create an account and securely authenticate before accessing their interview data.
 
