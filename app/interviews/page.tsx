@@ -1,12 +1,33 @@
+
 export const dynamic = "force-dynamic";
 
+import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 
-
-
 export default async function InterviewsPage() {
-  const user = await prisma.user.findFirst({
+  const session = await auth();
+
+  if (!session?.user?.id) {
+    return (
+      <main className="min-h-screen bg-gray-50 px-6 py-10">
+        <div className="mx-auto max-w-6xl">
+          <h1 className="text-3xl font-bold text-gray-900">
+            My Interviews
+          </h1>
+
+          <p className="mt-2 text-red-600">
+            Please log in to view your interviews.
+          </p>
+        </div>
+      </main>
+    );
+  }
+
+  const user = await prisma.user.findUnique({
+    where: {
+      id: session.user.id,
+    },
     include: {
       interviews: {
         include: {
@@ -32,7 +53,9 @@ export default async function InterviewsPage() {
             My Interviews
           </h1>
 
-          <p className="mt-2 text-gray-500">No user found.</p>
+          <p className="mt-2 text-red-600">
+            User account could not be found.
+          </p>
         </div>
       </main>
     );

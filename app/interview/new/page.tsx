@@ -1,10 +1,11 @@
-import { prisma } from "@/lib/prisma";
+
+import { auth } from "@/auth";
 import CreateInterviewForm from "@/app/components/create-interview-form";
 
 export default async function NewInterviewPage() {
-  const user = await prisma.user.findFirst();
+  const session = await auth();
 
-  if (!user) {
+  if (!session?.user?.id) {
     return (
       <main className="min-h-screen px-8 py-10">
         <div className="mx-auto max-w-4xl">
@@ -13,7 +14,7 @@ export default async function NewInterviewPage() {
           </h1>
 
           <p className="mt-2 text-red-600">
-            Please create a user before starting an interview.
+            Please log in before starting an interview.
           </p>
         </div>
       </main>
